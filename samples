@@ -1,0 +1,112 @@
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+
+
+int age = 25;
+double height = 5.9;
+char gender = 'M';
+String name = "John";
+boolean isStudent = true;
+
+
+
+int a = 10;
+int b = 5;
+int sum = a + b;
+int difference = a - b;
+int product = a * b;
+double quotient = (double) a / b;
+int remainder = a % b;
+
+
+
+int x = 10;
+if (x > 0) {
+    System.out.println("Positive");
+} else if (x < 0) {
+    System.out.println("Negative");
+} else {
+    System.out.println("Zero");
+}
+
+
+
+for (int i = 0; i < 5; i++) {
+    System.out.println("Iteration: " + i);
+}
+
+
+int[] numbers = {1, 2, 3, 4, 5};
+String[] names = {"Alice", "Bob", "Charlie"};
+
+
+
+public int add(int a, int b) {
+    return a + b;
+}
+
+
+
+
+class Person {
+    String name;
+    int age;
+}
+Person person1 = new Person();
+person1.name = "Alice";
+person1.age = 30;
+
+
+
+
+class Animal {
+    void eat() {
+        System.out.println("Animal is eating.");
+    }
+}
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog is barking.");
+    }
+}
+
+
+
+Animal animal = new Dog();
+animal.eat(); // This will call Dog's eat method if overridden
+
+
+
+class Account {
+    private double balance;
+    public void deposit(double amount) {
+        balance += amount;
+    }
+    public double getBalance() {
+        return balance;
+    }
+}
+
+
+
+interface Printable {
+    void print();
+}
+class Document implements Printable {
+    public void print() {
+        System.out.println("Printing document...");
+    }
+}
+
+
+
+try {
+    // code that may throw an exception
+} catch (Exception e) {
+    // handle the exception
+} finally {
+    // optional, cleanup code
+}
