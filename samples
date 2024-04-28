@@ -135,3 +135,74 @@ HashSet<String> set = new HashSet<>();
 set.add("Apple");
 set.add("Banana");
 set.add("Orange");
+
+import java.io.File;
+import java.io.FileWriter;
+try {
+    FileWriter writer = new FileWriter("file.txt");
+    writer.write("Hello, World!");
+    writer.close();
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
+
+
+import java.util.ArrayList;
+ArrayList<String> list = new ArrayList<>();
+list.add("Apple");
+list.add("Banana");
+list.add("Orange");
+
+
+
+import java.util.HashSet;
+HashSet<String> set = new HashSet<>();
+set.add("Apple");
+set.add("Banana");
+set.add("Orange");
+
+----------
+import java.util.HashMap;
+HashMap<String, Integer> map = new HashMap<>();
+map.put("Apple", 10);
+map.put("Banana", 5);
+map.put("Orange", 8);
+
+
+
+import java.util.Arrays;
+int[] numbers = {5, 2, 8, 1, 9};
+Arrays.sort(numbers);
+
+
+import java.util.Collections;
+ArrayList<Integer> list = new ArrayList<>();
+list.add(5);
+list.add(2);
+list.add(8);
+Collections.sort(list);
+
+
+
+ArrayList<Integer> list = new ArrayList<>();
+list.forEach((n) -> System.out.println(n));
+
+
+
+
+import java.util.stream.IntStream;
+IntStream.range(1, 5).forEach(System.out::println);
+
+
+import java.util.regex.Pattern;
+Pattern pattern = Pattern.compile("ab+c");
+
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Thread running...");
+    }
+}
+MyThread thread = new MyThread();
+thread.start();
