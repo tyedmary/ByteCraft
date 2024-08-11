@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "./MyToken.sol";
+
+contract DecentralizedExchange {
+    MyToken public token;
+    mapping(address => uint256) public balance;
+
+    event TokenPurchased(address buyer, uint256 amount);
+    event TokenSold(address seller, uint256 amount);
+
+    constructor(address _tokenAddress) {
+        token = MyToken(_tokenAddress);
+    }
+
+    function buyToken(uint256 amount) public payable {
+        uint256 tokenAmount = amount * (1 ether);
+        require(token.balanceOf(address(this)) >= tokenAmount, "Insufficient token balance");
+        require(msg.value >= tokenAmount, "Insufficient ether provided");
+        balance[msg.sender] += tokenAmount;
+        token.transfer(msg.sender, tokenAmount);
+        emit TokenPurchased(msg.sender, tokenAmount);
+    }
+
+    function sellToken(uint256 amount) public {
+        uint256 etherAmount = amount * (1 ether);
+        require(balance[msg.sender] >= etherAmount, "Insufficient token balance");
+        require(token.balanceOf(address(this)) >= amount, "Insufficient token balance in exchange");
+        balance[msg.sender] -= etherAmount;
+        token.transferFrom(msg.sender, address(this), amount);
+        payable(msg.sender).transfer(etherAmount);
+        emit TokenSold(msg.sender, amount);
+    }
+}
